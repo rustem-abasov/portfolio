@@ -65,19 +65,22 @@ if (navToggle && mainNav) {
   });
 }
 
-// About submenu
-const submenuParent = document.querySelector(".has-submenu");
-const submenuToggle = document.querySelector(".submenu-toggle");
-if (submenuParent && submenuToggle) {
+// Sidebar submenus
+document.querySelectorAll(".has-submenu").forEach((submenuParent) => {
+  const submenuToggle = submenuParent.querySelector(
+    ":scope > .menu-parent > .submenu-toggle",
+  );
+  if (!submenuToggle) return;
+
   submenuToggle.addEventListener("click", () => {
     const isOpen = submenuParent.classList.toggle("is-open");
     submenuToggle.setAttribute("aria-expanded", isOpen);
     submenuToggle.setAttribute(
       "aria-label",
-      isOpen ? "About alt menyusunu bağla" : "About alt menyusunu aç",
+      isOpen ? "Alt menyunu bağla" : "Alt menyunu aç",
     );
   });
-}
+});
 
 // Animate skill bars and percentages when the section enters the viewport.
 const skillsGrid = document.querySelector(".skills-grid");
