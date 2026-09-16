@@ -70,7 +70,7 @@ img {
 .sidebar {
   background: var(--bg);
   border-right: 1px solid var(--line);
-  padding: 28px 22px;
+  padding: 12px 22px;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -366,7 +366,7 @@ main {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1px solid var(--line);
+  /* border: 1px solid var(--line); */
   border-radius: var(--radius);
   padding: 26px 26px 22px;
   display: flex;
@@ -704,9 +704,9 @@ main {
   border-color: var(--line-strong);
   transform: translateY(-3px);
 }
-.certification-card-featured {
+/* .certification-card-featured {
   border-color: rgba(79, 214, 255, 0.28);
-}
+} */
 .certification-index {
   color: var(--accent);
   font-size: 12px;
@@ -956,7 +956,7 @@ main {
   border-radius: var(--radius);
   overflow: hidden;
   min-height: 260px;
-  border: 1px solid var(--line);
+  /* border: 1px solid var(--line); */
   background-color: var(--panel-2);
   background-image:
     linear-gradient(150deg, rgba(28, 47, 66, 0.28), rgba(10, 20, 31, 0.38)),
