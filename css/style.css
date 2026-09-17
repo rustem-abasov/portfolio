@@ -1591,8 +1591,8 @@ footer {
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(224, 122, 95, 0.15);
+  /* border-color: var(--accent); */
+  /* box-shadow: var(--accent); */
 }
 
 .service-card .icon {
