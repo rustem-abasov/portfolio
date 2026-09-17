@@ -638,7 +638,7 @@ main {
   color: #f25c78;
 }
 .resume-entry-content {
-  min-width: 0;
+  min-width: 300px;
 }
 .resume-date {
   display: block;
