@@ -687,7 +687,7 @@ main {
   display: grid;
   grid-template-columns: 42px 1fr;
   gap: 16px;
-  min-height: 210px;
+  min-height: 180px;
   padding: 22px 20px 20px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -707,12 +707,12 @@ main {
 /* .certification-card-featured {
   border-color: rgba(79, 214, 255, 0.28);
 } */
-.certification-index {
+/* .certification-index {
   color: var(--accent);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
-}
+} */
 .certification-icon {
   position: absolute;
   top: 20px;
@@ -734,7 +734,7 @@ main {
   text-transform: uppercase;
 }
 .certification-card h4 {
-  max-width: 30ch;
+  max-width: 40ch;
   margin: 0 0 9px;
   color: var(--text);
   font-size: 18px;
