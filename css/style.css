@@ -593,9 +593,9 @@ main {
   background: var(--muted);
   z-index: 1;
 }
-.resume-entry:nth-of-type(3) .resume-marker {
+/* .resume-entry:nth-of-type(3) .resume-marker {
   background: var(--accent);
-}
+} */
 .resume-logo {
   display: flex;
   align-items: center;
@@ -638,7 +638,7 @@ main {
   color: #f25c78;
 }
 .resume-entry-content {
-  min-width: 300px;
+  min-width: 450px;
 }
 .resume-date {
   display: block;
@@ -651,6 +651,11 @@ main {
   color: var(--text);
   font-size: 17px;
   line-height: 1.25;
+}
+.resume-entry li {
+  margin-left: 20px;
+  color: var(--muted);
+  font-size: 13px;
 }
 .resume-entry p {
   margin: 0;
