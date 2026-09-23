@@ -1,16 +1,3 @@
-// live clock
-function tick() {
-  const d = new Date();
-  const clock = document.getElementById("clock");
-  if (!clock) return;
-  clock.textContent =
-    d.getHours().toString().padStart(2, "0") +
-    ":" +
-    d.getMinutes().toString().padStart(2, "0");
-}
-tick();
-setInterval(tick, 1000 * 20);
-
 // Hero typing effect
 const typingTexts = ["Salam", "Hello", "Selam"];
 const typedText = document.getElementById("typed-text");
@@ -86,14 +73,13 @@ document.querySelectorAll(".has-submenu").forEach((submenuParent) => {
 const skillsGrid = document.querySelector(".skills-grid");
 if (skillsGrid) {
   const animateSkills = () => {
-    skillsGrid.querySelectorAll(".skill-fill").forEach((fill) => {
+    const fills = skillsGrid.querySelectorAll(".skill-fill");
+    fills.forEach((fill) => {
       fill.style.width = `${fill.dataset.level}%`;
     });
 
     skillsGrid.querySelectorAll(".skill-value").forEach((value, index) => {
-      const target = Number(
-        skillsGrid.querySelectorAll(".skill-fill")[index].dataset.level,
-      );
+      const target = Number(fills[index].dataset.level);
       let current = 0;
       const step = () => {
         current = Math.min(current + 2, target);
@@ -116,26 +102,31 @@ if (skillsGrid) {
 }
 
 // active link on scroll
-const links = document.querySelectorAll("#mainNav a");
-const sections = [...links]
-  .map((l) => document.querySelector(l.getAttribute("href")))
-  .filter(Boolean);
+// Pair each nav link with its target section up front, so links and
+// sections never fall out of sync when a link has no matching section.
+const navPairs = [...document.querySelectorAll("#mainNav a")]
+  .map((link) => ({
+    link,
+    section: document.querySelector(link.getAttribute("href")),
+  }))
+  .filter((pair) => pair.section);
+
 window.addEventListener("scroll", () => {
-  let idx = 0;
-  sections.forEach((sec, i) => {
-    if (window.scrollY + 120 >= sec.offsetTop) idx = i;
+  let activeIndex = 0;
+  navPairs.forEach((pair, i) => {
+    if (window.scrollY + 120 >= pair.section.offsetTop) activeIndex = i;
   });
-  links.forEach((l) => l.closest("li")?.classList.remove("active-menu"));
-  links[idx]?.closest("li")?.classList.add("active-menu");
+  navPairs.forEach(({ link }) => link.closest("li")?.classList.remove("active-menu"));
+  navPairs[activeIndex]?.link.closest("li")?.classList.add("active-menu");
 });
 
 // contact form
-document.getElementById("contactForm").addEventListener("submit", function (e) {
+document.getElementById("contactForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
   const toast = document.getElementById("toast");
-  toast.classList.add("show");
+  toast?.classList.add("show");
   this.reset();
-  setTimeout(() => toast.classList.remove("show"), 2600);
+  setTimeout(() => toast?.classList.remove("show"), 2600);
 });
 
 const backToTop = document.getElementById("backToTop");
@@ -193,6 +184,8 @@ projectModal?.querySelectorAll("[data-close-modal]").forEach((element) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeModal();
 });
+
+// Testimonial slideshow
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -205,23 +198,24 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
+  const slides = document.getElementsByClassName("mySlides");
+  const dots = document.getElementsByClassName("dot");
+  if (!slides.length) return;
+
   if (n > slides.length) {
     slideIndex = 1;
   }
   if (n < 1) {
     slideIndex = slides.length;
   }
-  for (i = 0; i < slides.length; i++) {
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
+  for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  dots[slideIndex - 1]?.classList.add("active");
 }
 
 setInterval(() => {
