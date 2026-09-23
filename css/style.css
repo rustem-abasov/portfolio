@@ -583,7 +583,13 @@ main {
   z-index: 1;
 }
 .resume-entry-content {
-  min-width: 450px;
+  min-width: 400px;
+  
+}
+
+.resume-entry-content ul {
+  padding-left: 0;
+  
 }
 .resume-date {
   display: block;
@@ -598,10 +604,12 @@ main {
   line-height: 1.25;
 }
 .resume-entry li {
-  margin-left: 20px;
+  margin: 30px;
   color: var(--muted);
   font-size: 13px;
 }
+
+
 .resume-entry p {
   margin: 0;
   color: var(--muted);
