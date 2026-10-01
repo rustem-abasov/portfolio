@@ -949,6 +949,77 @@ main {
 .event-card {
   display: flex;
   gap: 16px;
+  align-items: flex-start; /* Tarix qutusu ilə məzmunun yuxarıdan düzülməsi üçün */
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.event-date {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  border: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-date .d {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.event-date .m {
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.event-body {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  min-width: 0; /* Flexbox daxilində daşmanın qarşısını almaq üçün vacibdir */
+}
+
+.event-body h3 {
+  margin: 0 0 4px;
+  font-size: 15.5px;
+}
+
+.event-body p {
+  color: var(--muted);
+  font-size: 12.5px;
+  margin: 0 0 10px 0; /* Link ilə mətn arasında boşluq */
+  word-break: break-word;     /* Uzun sözlərin aşağı sətirə düşməsini təmin edir */
+  overflow-wrap: break-word;
+}
+
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.event-link:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+/* .event-card {
+  display: flex;
+  gap: 16px;
   align-items: center;
   background: var(--panel);
   border: 1px solid var(--line);
@@ -982,13 +1053,79 @@ main {
   margin: 0 0 4px;
   font-size: 15.5px;
 }
-.event-body span {
+.event-body p {
   color: var(--muted);
   font-size: 12.5px;
-}
+} */
 
 /* ---------- Social pages ---------- */
 .social-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-card .icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+/* Mətnlərin daşmasının qarşısını alan hissə */
+.social-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.social-card h3 {
+  margin: 0 0 2px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.social-card span {
+  color: var(--muted);
+  font-size: 12.5px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Artıq <a> tagi olan sağ hissənin dizaynı */
+.social-action {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--panel-2, transparent);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-action:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
+  transform: scale(1.05);
+}
+/* .social-card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1030,7 +1167,7 @@ main {
 .social-card .followers small {
   color: var(--muted);
   font-size: 11px;
-}
+} */
 
 /* ---------- Testimonials ---------- */
 .slideshow-container {
