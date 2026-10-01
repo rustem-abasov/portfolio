@@ -297,7 +297,7 @@ img {
 /* ---------- Main ---------- */
 main {
   padding: 28px 34px 60px;
-  max-width: 1180px;
+  max-width: 1400px;
 }
 @media (max-width: 640px) {
   main {
