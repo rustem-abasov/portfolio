@@ -121,12 +121,42 @@ window.addEventListener("scroll", () => {
 });
 
 // contact form
-document.getElementById("contactForm")?.addEventListener("submit", function (e) {
+document.getElementById("contactForm")?.addEventListener("submit", async function (e) {
   e.preventDefault();
+  const form = this;
+  const submitButton = form.querySelector('button[type="submit"]');
   const toast = document.getElementById("toast");
-  toast?.classList.add("show");
-  this.reset();
-  setTimeout(() => toast?.classList.remove("show"), 2600);
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Form submission failed with status ${response.status}`);
+    }
+
+    form.reset();
+    if (toast) {
+      toast.textContent = "Mesajınız uğurla göndərildi. ✓";
+      toast.classList.remove("error");
+    }
+  } catch (error) {
+    console.error("Contact form submission failed:", error);
+    if (toast) {
+      toast.textContent = "Mesaj göndərilmədi. Zəhmət olmasa yenidən cəhd edin.";
+      toast.classList.add("error");
+    }
+  } finally {
+    submitButton.disabled = false;
+    if (toast) {
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2600);
+    }
+  }
 });
 
 const backToTop = document.getElementById("backToTop");

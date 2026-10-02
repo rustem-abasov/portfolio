@@ -249,9 +249,14 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
+  width: 20px;
   color: #00aaff;
-  font-size: 18px;
+  font-size: 20px;
+}
+.submenu-marker img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 .menu-lists .icon {
   display: inline-flex;
@@ -1403,6 +1408,10 @@ footer {
 .toast.show {
   transform: translateY(0);
   opacity: 1;
+}
+.toast.error {
+  background: #ff6b6b;
+  color: #1c0808;
 }
 
 /* mobile nav toggle */
