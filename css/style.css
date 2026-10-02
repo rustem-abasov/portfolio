@@ -56,6 +56,9 @@ img {
   display: grid;
   grid-template-columns: 310px 1fr;
   min-height: 100vh;
+  max-width: 1800px;
+  margin: 0 auto;
+
 }
 @media (max-width: 960px) {
   .shell {
@@ -297,7 +300,7 @@ img {
 /* ---------- Main ---------- */
 main {
   padding: 28px 34px 60px;
-  max-width: 1400px;
+  max-width: 1180px;
 }
 @media (max-width: 640px) {
   main {
