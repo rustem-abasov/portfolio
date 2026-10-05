@@ -58,7 +58,6 @@ img {
   min-height: 100vh;
   max-width: 1600px;
   margin: 0 auto;
-
 }
 @media (max-width: 960px) {
   .shell {
@@ -592,12 +591,10 @@ main {
 }
 .resume-entry-content {
   min-width: 400px;
-  
 }
 
 .resume-entry-content ul {
   padding-left: 20px;
-  
 }
 .resume-date {
   display: block;
@@ -617,7 +614,6 @@ main {
   color: var(--muted);
   font-size: 13px;
 }
-
 
 .resume-entry p {
   margin: 0;
@@ -1006,7 +1002,7 @@ main {
   color: var(--muted);
   font-size: 12.5px;
   margin: 0 0 10px 0; /* Link ilə mətn arasında boşluq */
-  word-break: break-word;     /* Uzun sözlərin aşağı sətirə düşməsini təmin edir */
+  word-break: break-word; /* Uzun sözlərin aşağı sətirə düşməsini təmin edir */
   overflow-wrap: break-word;
 }
 
@@ -1477,11 +1473,18 @@ footer {
   margin: 0 auto;
 }
 .service-card {
-  background: linear-gradient(160deg, rgba(15, 29, 44, 0.72), rgba(6, 13, 21, 0.72));
+  background: linear-gradient(
+    160deg,
+    rgba(15, 29, 44, 0.72),
+    rgba(6, 13, 21, 0.72)
+  );
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 32px 28px;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
   gap: 10px;
