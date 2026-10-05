@@ -566,7 +566,7 @@ main {
 .resume-entry {
   display: grid;
   grid-template-columns: 10px 76px minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: 22px;
   position: relative;
   min-height: 128px;
@@ -582,13 +582,36 @@ main {
   border-left: 1px dashed rgba(79, 214, 255, 0.34);
 }
 .resume-marker {
+  align-self: start;
   position: relative;
   display: block;
   width: 10px;
   height: 10px;
+  margin-top: 37px;
   background: var(--muted);
   z-index: 1;
 }
+/* .resume-entry:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 32px;
+  bottom: -20px;
+  width: 0;
+  border-left: 1px dashed rgba(79, 214, 255, 0.34);
+}
+.resume-marker {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+  z-index: 1;
+} */
 .resume-entry-content {
   min-width: 400px;
 }
@@ -766,6 +789,9 @@ main {
   }
   .resume-entry h6 {
     font-size: 14px;
+  }
+  .resume-marker {
+    margin-top: 35px;
   }
 }
 
